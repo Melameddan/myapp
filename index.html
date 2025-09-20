@@ -3,18 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello Coolify</title>
+  <title>n8n Webhook Test</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-  </nav>
-
   <div class="card">
-    <h1>🚀 Hello from Coolify!</h1>
-    <p>This is my first static site test.</p>
+    <h1>🔔 Send Telegram Alert</h1>
+    <p>Click the button below to trigger my n8n workflow.</p>
+    <button id="trigger-btn" class="btn">Send Hook</button>
+    <p id="status"></p>
   </div>
+
+  <script>
+    const button = document.getElementById("trigger-btn");
+    const status = document.getElementById("status");
+
+    button.addEventListener("click", async () => {
+      status.textContent = "⏳ Sending...";
+      try {
+        const res = await fetch("https://your-n8n-domain/webhook/coolify-test");
+        if (res.ok) {
+          status.textContent = "✅ Hook sent! Check Telegram.";
+        } else {
+          status.textContent = "❌ Error: " + res.status;
+        }
+      } catch (err) {
+        status.textContent = "⚠️ Failed to reach server.";
+      }
+    });
+  </script>
 </body>
 </html>
