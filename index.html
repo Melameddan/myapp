@@ -3,27 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>n8n Webhook Test</title>
+  <title>n8n Webhook Form</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="card">
-    <h1>🔔 Send Telegram Alert</h1>
-    <p>Click the button below to trigger my n8n workflow.</p>
-    <button id="trigger-btn" class="btn">Send Hook</button>
+    <h1>📩 Send Info</h1>
+    <form id="info-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="text" name="address" placeholder="Your Address" required />
+      <input type="tel" name="phone" placeholder="Your Phone" required />
+      <button type="submit" class="btn">Send</button>
+    </form>
     <p id="status"></p>
   </div>
 
   <script>
-    const button = document.getElementById("trigger-btn");
+    const form = document.getElementById("info-form");
     const status = document.getElementById("status");
 
-    button.addEventListener("click", async () => {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const data = {
+        name: form.name.value,
+        address: form.address.value,
+        phone: form.phone.value
+      };
+
       status.textContent = "⏳ Sending...";
+
       try {
-        const res = await fetch("https://n8n.melamed.digital/webhook-test/477da0a7-50f6-4f8f-90b0-a76727b885d6");
+        const res = await fetch("https://your-n8n-domain/webhook/coolify-test", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
         if (res.ok) {
-          status.textContent = "✅ Hook sent! Check Telegram.";
+          status.textContent = "✅ Sent! Check Telegram.";
+          form.reset();
         } else {
           status.textContent = "❌ Error: " + res.status;
         }
@@ -34,4 +53,3 @@
   </script>
 </body>
 </html>
-
