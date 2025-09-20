@@ -21,7 +21,7 @@
     button.addEventListener("click", async () => {
       status.textContent = "⏳ Sending...";
       try {
-        const res = await fetch("https://your-n8n-domain/webhook/coolify-test");
+        const res = await fetch("https://n8n.melamed.digital/webhook-test/477da0a7-50f6-4f8f-90b0-a76727b885d6");
         if (res.ok) {
           status.textContent = "✅ Hook sent! Check Telegram.";
         } else {
@@ -34,3 +34,4 @@
   </script>
 </body>
 </html>
+
