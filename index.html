@@ -3,19 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>n8n Webhook Form</title>
+  <title>Coolify App 🚀</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="card">
-    <h1>📩 Send Info</h1>
-    <form id="info-form">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="text" name="address" placeholder="Your Address" required />
-      <input type="tel" name="phone" placeholder="Your Phone" required />
-      <button type="submit" class="btn">Send</button>
-    </form>
-    <p id="status"></p>
+  <div class="container">
+    <div class="card">
+      <h1>📩 Send Your Info</h1>
+      <p class="subtitle">Fill out the form and get an instant response!</p>
+
+      <form id="info-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <input type="text" name="address" placeholder="Your Address" required />
+        <input type="tel" name="phone" placeholder="Your Phone" required />
+        <textarea name="message" placeholder="Write us a short message..." rows="3"></textarea>
+        <button type="submit" class="btn">🚀 Send</button>
+      </form>
+
+      <p id="status"></p>
+    </div>
   </div>
 
   <script>
@@ -27,8 +34,10 @@
 
       const data = {
         name: form.name.value,
+        email: form.email.value,
         address: form.address.value,
-        phone: form.phone.value
+        phone: form.phone.value,
+        message: form.message.value
       };
 
       status.textContent = "⏳ Sending...";
@@ -41,7 +50,8 @@
         });
 
         if (res.ok) {
-          status.textContent = "✅ Sent! Check Telegram.";
+          const text = await res.text();
+          status.textContent = "✅ " + text;
           form.reset();
         } else {
           status.textContent = "❌ Error: " + res.status;
@@ -53,6 +63,3 @@
   </script>
 </body>
 </html>
-
-
-
