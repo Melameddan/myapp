@@ -1,55 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>n8n Webhook Form</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="card">
-    <h1>📩 Send Info</h1>
-    <form id="info-form">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="text" name="address" placeholder="Your Address" required />
-      <input type="tel" name="phone" placeholder="Your Phone" required />
-      <button type="submit" class="btn">Send</button>
-    </form>
-    <p id="status"></p>
-  </div>
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f3f3;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-  <script>
-    const form = document.getElementById("info-form");
-    const status = document.getElementById("status");
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+h1 {
+  margin-bottom: 1.5rem;
+}
 
-      const data = {
-        name: form.name.value,
-        address: form.address.value,
-        phone: form.phone.value
-      };
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-      status.textContent = "⏳ Sending...";
+input {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
 
-      try {
-        const res = await fetch("https://your-n8n-domain/webhook/coolify-test", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        });
+.btn {
+  padding: 0.8rem 1.5rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
 
-        if (res.ok) {
-          status.textContent = "✅ Sent! Check Telegram.";
-          form.reset();
-        } else {
-          status.textContent = "❌ Error: " + res.status;
-        }
-      } catch (err) {
-        status.textContent = "⚠️ Failed to reach server.";
-      }
-    });
-  </script>
-</body>
-</html>
+.btn:hover {
+  background: #0056b3;
+}
+
+#status {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #333;
+}
