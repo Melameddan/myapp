@@ -1,65 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coolify App 🚀</title>
-  <link rel="stylesheet" href="style.css">
+  <title>מערכת ניהול אישורי קבלנים</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <h1>📩 HELO - Send Your Info</h1>
-      <p class="subtitle">Fill out the form and get an instant response!</p>
-
-      <form id="info-form">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <input type="text" name="address" placeholder="Your Address" required />
-        <input type="tel" name="phone" placeholder="Your Phone" required />
-        <textarea name="message" placeholder="Write us a short message..." rows="3"></textarea>
-        <button type="submit" class="btn">🚀 Send</button>
-      </form>
-
-      <p id="status"></p>
-    </div>
-  </div>
-
-  <script>
-    const form = document.getElementById("info-form");
-    const status = document.getElementById("status");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const data = {
-        name: form.name.value,
-        email: form.email.value,
-        address: form.address.value,
-        phone: form.phone.value,
-        message: form.message.value
-      };
-
-      status.textContent = "⏳ Sending...";
-
-      try {
-        const res = await fetch("https://n8n.melamed.digital/webhook-test/477da0a7-50f6-4f8f-90b0-a76727b885d6", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        });
-
-        if (res.ok) {
-          const text = await res.text();
-          status.textContent = "✅ " + text;
-          form.reset();
-        } else {
-          status.textContent = "❌ Error: " + res.status;
-        }
-      } catch (err) {
-        status.textContent = "⚠️ Failed to reach server.";
-      }
-    });
-  </script>
+  <header class="topbar">
+    <div class="logo">🏗️ מערכת אישורים</div>
+  </header>
+  <main class="home">
+    <section class="intro">
+      <h1>ברוכים הבאים</h1>
+      <p>
+        האתר מאפשר לך לעבוד עם שני קבצי האקסל המרכזיים של המערכת: רשימת הקבלנים המאושרים ורשימת האנשים שקיבלו אישור.
+        התחילו בעבודה באמצעות אחד המסכים הבאים.
+      </p>
+    </section>
+    <section class="links-grid">
+      <a class="nav-card" href="search.html">
+        <h2>🔍 חיפוש</h2>
+        <p>חיפוש מהיר במאגר הקבלנים והמאושרים לפי שם, מספר זיהוי או שם חברה.</p>
+      </a>
+      <a class="nav-card" href="new-contractor.html">
+        <h2>🆕 קבלן חדש</h2>
+        <p>הוספת קבלן חדש לרשימת הקבלנים המאושרים ויצירת קובץ אקסל מעודכן.</p>
+      </a>
+      <a class="nav-card" href="login.html">
+        <h2>🔐 כניסה</h2>
+        <p>כניסה למערכת על בסיס הרשאות שנשמרו בקובץ בעלי האישור.</p>
+      </a>
+      <a class="nav-card" href="logout.html">
+        <h2>🚪 יציאה</h2>
+        <p>התנתקות מהמערכת וניקוי נתונים מקומיים שנשמרו בדפדפן.</p>
+      </a>
+    </section>
+  </main>
+  <footer class="footer">
+    <small>© 2024 מערכת ניהול אישורי קבלנים</small>
+  </footer>
 </body>
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>כניסה למערכת</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="scripts/login.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="index.html">🏠 חזרה לדף הבית</a>
+  </header>
+  <main class="page">
+    <section class="page-header">
+      <h1>כניסה</h1>
+      <p>הכניסה למערכת מתבססת על קובץ רשימת האנשים המאושרים שנשמר בדפדפן.</p>
+    </section>
+    <section class="card">
+      <h2>פרטי התחברות</h2>
+      <form id="login-form" class="form-grid">
+        <label>שם מלא
+          <input type="text" name="fullName" required />
+        </label>
+        <label>מספר זיהוי
+          <input type="text" name="identifier" required />
+        </label>
+        <label>דוא"ל
+          <input type="email" name="email" />
+        </label>
+        <button class="btn" type="submit">כניסה</button>
+      </form>
+      <p class="hint">טען קודם את קובץ האנשים המאושרים מתוך מסך החיפוש.</p>
+      <div id="login-status" class="status"></div>
+    </section>
+  </main>
+</body>
+</html>

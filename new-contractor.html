@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>הוספת קבלן חדש</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script>
+  <script defer src="scripts/new-contractor.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="index.html">🏠 חזרה לדף הבית</a>
+  </header>
+  <main class="page">
+    <section class="page-header">
+      <h1>קבלן חדש</h1>
+      <p>מלא את הפרטים הבסיסיים, הוסף לרשימת הקבלנים ושמור את הקובץ המעודכן.</p>
+    </section>
+    <section class="card">
+      <h2>טופס קבלן</h2>
+      <form id="contractor-form" class="form-grid">
+        <label>שם מלא
+          <input type="text" name="fullName" required />
+        </label>
+        <label>מספר זיהוי/ח.פ
+          <input type="text" name="identifier" required />
+        </label>
+        <label>שם חברה
+          <input type="text" name="company" />
+        </label>
+        <label>טלפון
+          <input type="tel" name="phone" />
+        </label>
+        <label>דוא"ל
+          <input type="email" name="email" />
+        </label>
+        <label>תוקף אישור
+          <input type="date" name="approvalUntil" />
+        </label>
+        <label>הערות
+          <textarea name="notes" rows="3"></textarea>
+        </label>
+        <button class="btn" type="submit">הוסף לרשימה</button>
+      </form>
+      <p id="form-status" class="status"></p>
+    </section>
+    <section class="card">
+      <div class="card-header">
+        <h2>רשימה מעודכנת</h2>
+        <button class="btn secondary" id="export-contractors">ייצוא לאקסל</button>
+      </div>
+      <p class="hint" id="contractor-count"></p>
+      <div id="contractors-preview" class="results"></div>
+    </section>
+  </main>
+</body>
+</html>
