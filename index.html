@@ -9,36 +9,131 @@
 <body>
   <header class="topbar">
     <div class="logo">🏗️ מערכת אישורים</div>
+    <nav class="main-nav">
+      <a href="index.html" aria-current="page">דף הבית</a>
+      <a href="search.html">חיפוש</a>
+      <a href="new-contractor.html">קבלן חדש</a>
+      <a href="about.html">אודות</a>
+    </nav>
   </header>
   <main class="home">
-    <section class="intro">
-      <h1>ברוכים הבאים</h1>
-      <p>
-        האתר מאפשר לך לעבוד עם שני קבצי האקסל המרכזיים של המערכת: רשימת הקבלנים המאושרים ורשימת האנשים שקיבלו אישור.
-        התחילו בעבודה באמצעות אחד המסכים הבאים.
-      </p>
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">ניהול אישורי קבלנים בקליק</p>
+        <h1>כל מה שצריך לניהול אישורי הקבלנים שלך במקום אחד</h1>
+        <p>
+          ממשק אינטואיטיבי שעוזר לך לעקוב אחר קבלנים מאושרים, להוסיף גורמים חדשים
+          ולנהל הרשאות – במהירות ובקלות.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="search.html">התחלת חיפוש</a>
+          <a class="btn secondary" href="new-contractor.html">הוספת קבלן חדש</a>
+        </div>
+        <ul class="hero-highlights">
+          <li>גישה מהירה לרשימות האקסל</li>
+          <li>תהליך עבודה מסודר ושקוף</li>
+          <li>תמיכה מובנית בניהול הרשאות</li>
+        </ul>
+      </div>
+      <div class="hero-illustration" aria-hidden="true">
+        <div class="hero-card">
+          <span class="hero-card-title">מעקב פעיל</span>
+          <strong>127</strong>
+          <small>קבלנים מאושרים</small>
+        </div>
+        <div class="hero-card secondary">
+          <span class="hero-card-title">הוספה אחרונה</span>
+          <strong>05.06.24</strong>
+          <small>עודכן על ידי דנה כהן</small>
+        </div>
+      </div>
     </section>
-    <section class="links-grid">
-      <a class="nav-card" href="search.html">
-        <h2>🔍 חיפוש</h2>
-        <p>חיפוש מהיר במאגר הקבלנים והמאושרים לפי שם, מספר זיהוי או שם חברה.</p>
-      </a>
-      <a class="nav-card" href="new-contractor.html">
-        <h2>🆕 קבלן חדש</h2>
-        <p>הוספת קבלן חדש לרשימת הקבלנים המאושרים ויצירת קובץ אקסל מעודכן.</p>
-      </a>
-      <a class="nav-card" href="login.html">
-        <h2>🔐 כניסה</h2>
-        <p>כניסה למערכת על בסיס הרשאות שנשמרו בקובץ בעלי האישור.</p>
-      </a>
-      <a class="nav-card" href="logout.html">
-        <h2>🚪 יציאה</h2>
-        <p>התנתקות מהמערכת וניקוי נתונים מקומיים שנשמרו בדפדפן.</p>
-      </a>
+    <section class="quick-actions" aria-label="קישורים מהירים">
+      <article class="quick-card">
+        <h2>🔍 מצאו בקלות</h2>
+        <p>חיפוש חכם במאגר עם סינון מתקדם ושמירה על היסטוריית חיפושים.</p>
+        <a class="link" href="search.html">למעבר למסך החיפוש</a>
+      </article>
+      <article class="quick-card">
+        <h2>📝 תהליך הוספה מודרך</h2>
+        <p>מדריך צעד-אחר-צעד שמבטיח שכל הנתונים החשובים נקלטים ללא טעויות.</p>
+        <a class="link" href="new-contractor.html">יצירת קבלן חדש</a>
+      </article>
+      <article class="quick-card">
+        <h2>🔐 ניהול הרשאות</h2>
+        <p>שליטה מלאה על הגישה למערכת עם כניסה מאובטחת ויציאה מהירה.</p>
+        <div class="link-row">
+          <a class="link" href="login.html">מסך כניסה</a>
+          <a class="link" href="logout.html">התנתקות</a>
+        </div>
+      </article>
+    </section>
+    <section class="features" aria-label="יתרונות מרכזיים">
+      <div class="section-header">
+        <h2>מה הופך את המערכת לידידותית כל כך?</h2>
+        <p>
+          עיצוב נקי, תהליכים פשוטים ותצוגה ברורה של הנתונים מאפשרים לכם לעבוד בביטחון ולחסוך זמן יקר.
+        </p>
+      </div>
+      <div class="features-grid">
+        <article class="feature-item">
+          <span class="feature-icon">📁</span>
+          <h3>סינכרון עם האקסלים</h3>
+          <p>ייבוא וייצוא של קבצי האקסל המרכזיים בכמה קליקים, ללא צורך בהגדרות מורכבות.</p>
+        </article>
+        <article class="feature-item">
+          <span class="feature-icon">📊</span>
+          <h3>תמונת מצב עדכנית</h3>
+          <p>לוח בקרה עם נתונים מעודכנים תמיד, כך שתמיד תדעו מה מצב הארגון.</p>
+        </article>
+        <article class="feature-item">
+          <span class="feature-icon">🤝</span>
+          <h3>שיתוף בין צוותים</h3>
+          <p>עבודה שיתופית באמצעות הרשאות מותאמות אישית לכל תפקיד בארגון.</p>
+        </article>
+      </div>
+    </section>
+    <section class="workflow" aria-label="איך זה עובד">
+      <div class="section-header">
+        <h2>תהליך עבודה פשוט וברור</h2>
+        <p>חיברנו עבורכם את השלבים העיקריים לניהול שוטף של מאגר הקבלנים.</p>
+      </div>
+      <ol class="workflow-steps">
+        <li>
+          <span class="step-badge">1</span>
+          <h3>ייבוא רשימות</h3>
+          <p>העלו את קבצי האקסל של הקבלנים המאושרים ושל בעלי ההרשאות למערכת.</p>
+        </li>
+        <li>
+          <span class="step-badge">2</span>
+          <h3>בדיקה ועדכון</h3>
+          <p>בדקו את המידע, חפשו קבלנים קיימים והוסיפו פרטים חדשים בקלות.</p>
+        </li>
+        <li>
+          <span class="step-badge">3</span>
+          <h3>ייצוא ושיתוף</h3>
+          <p>הפיקו קבצים מעודכנים ושיתוף אותם עם בעלי העניין בלחיצת כפתור.</p>
+        </li>
+      </ol>
+    </section>
+    <section class="cta-banner" aria-label="תמיכה ועזרה">
+      <div class="cta-content">
+        <h2>צריכים עזרה או יש לכם רעיון לשיפור?</h2>
+        <p>
+          אנחנו כאן בשבילכם. פנו אלינו כדי לקבל תמיכה טכנית, הדרכה או הצעות לפיתוחים נוספים במערכת.
+        </p>
+        <a class="btn" href="mailto:support@example.com">צרו קשר עם התמיכה</a>
+      </div>
     </section>
   </main>
   <footer class="footer">
-    <small>© 2024 מערכת ניהול אישורי קבלנים</small>
+    <div class="footer-content">
+      <small>© 2024 מערכת ניהול אישורי קבלנים</small>
+      <div class="footer-links">
+        <a href="about.html">אודות</a>
+        <a href="mailto:support@example.com">תמיכה</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
